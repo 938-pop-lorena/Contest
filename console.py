@@ -43,6 +43,20 @@ def listUI(participants, parameters):
         raise ValueError("Invalid parameters!")
 
 
+def averageScoreUI(participants, parameters):
+    if len(parameters) != 3 or parameters[1] != "to":
+        raise ValueError("Invalid parameters!")
+    avg = averageScoreInRange(participants, parameters)
+    print(avg)
+
+
+def lowestAverageUI(participants, parameters):
+    if len(parameters) != 3 or parameters[1] != "to":
+        raise ValueError("Invalid parameters!")
+    lowestAvg = lowestAverage(participants, parameters)
+    print(lowestAvg)
+
+
 def commandName(command: str):
     command = command.strip()
     return command.split(' ')[0]
@@ -71,7 +85,9 @@ def runConsoleUI():
                 'insert': insertUI,
                 'remove': removeUI,
                 'replace': replaceUI,
-                'list': listUI
+                'list': listUI,
+                'avg': averageScoreUI,
+                'min': lowestAverageUI
                 }
 
     done = False

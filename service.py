@@ -141,6 +141,47 @@ def listAverageWithRelation(participants: list, parameters: list) -> list:
     return filteredParticipants
 
 
+"""
+    ========================== D ==========================   
+"""
+
+
+def averageScoreInRange(participants: list, parameters: list):
+    """
+    Return the average score of average scores for participants in given range.
+
+    :param participants: List of participants
+    :param parameters: List of parameters
+    :return: int - average score
+    """
+    startPos = validPositon(participants, parameters[0])
+    endPos = validPositon(participants,parameters[2])
+    avgSum = 0
+    count = 0
+    for i in range(startPos, endPos + 1):
+        avgSum = avgSum + averageScore(participants[i])
+        count += 1
+    avg = int(avgSum/count)
+    return avg
+
+
+def lowestAverage(participants: list, parameters: list):
+    """
+    Returns the lowest average score of participants between given positions.
+
+    :param participants: List of participants
+    :param parameters: List of parameters
+    :return: int - lowest average score
+    """
+    startPos = validPositon(participants, parameters[0])
+    endPos = validPositon(participants, parameters[2])
+    minScore = 10
+    for i in range(startPos, endPos + 1):
+        if averageScore(participants[i]) < minScore:
+            minScore = averageScore(participants[i])
+    return minScore
+
+
 def generateRandomParticipants(count: int) -> list:
     """
     Generates a list of participants.
