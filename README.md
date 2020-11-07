@@ -15,7 +15,7 @@ e.g.
 (B) Modify scores
 - remove <position>
 -nremove <start position> to <end position>
--nreplace <old score> <P1 | P2 | P3> with <new score>
+-nreplace <old score> <P1 | P2 | P3> with <new score>  
 e.g.
 - remove 1 – set the scores of the participant at position 1 to 0
 - remove 1 to 3 – set the scores of participants at positions 1, 2 and 3 to 0
@@ -24,7 +24,7 @@ e.g.
 (C) Display participants whose score has different properties.
 - list
 - list sorted
-- list [ < | = | > ] <score>
+- list [ < | = | > ] <score>  
 e.g.
 - list – display participants and all their scores
 - list < 4 – display participants with an average score <4
