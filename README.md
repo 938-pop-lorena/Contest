@@ -7,7 +7,7 @@ Write a program that implements the functionalities exemplified below:
 
 (A) Add the result of a new participant
 - add <P1 score> <P2 score> <P3 score>
-- insert <P1 score> <P2 score> <P3 score> at <position>
+- insert <P1 score> <P2 score> <P3 score> at <position>  
 e.g.
 - add 3 8 10 – add a new participant with scores 3,8 and 10 (scores for P1, P2, P3 respectively)
 - insert 10 10 9 at 5 – insert scores 10, 10 and 9 at position 5 in the list (positions numbered from 0)
