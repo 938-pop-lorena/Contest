@@ -13,20 +13,20 @@ e.g.
 - insert 10 10 9 at 5 – insert scores 10, 10 and 9 at position 5 in the list (positions numbered from 0)
 
 (B) Modify scores
-remove <position>
-remove <start position> to <end position>
-replace <old score> <P1 | P2 | P3> with <new score>
+- remove <position>
+-nremove <start position> to <end position>
+-nreplace <old score> <P1 | P2 | P3> with <new score>
 e.g.
-remove 1 – set the scores of the participant at position 1 to 0
-remove 1 to 3 – set the scores of participants at positions 1, 2 and 3 to 0
-replace 4 P2 with 5 – replace the score obtained by participant 4 at P2 with 5
+- remove 1 – set the scores of the participant at position 1 to 0
+- remove 1 to 3 – set the scores of participants at positions 1, 2 and 3 to 0
+- replace 4 P2 with 5 – replace the score obtained by participant 4 at P2 with 5
 
 (C) Display participants whose score has different properties.
-list
-list sorted
-list [ < | = | > ] <score>
+- list
+- list sorted
+- list [ < | = | > ] <score>
 e.g.
-list – display participants and all their scores
-list < 4 – display participants with an average score <4
-list = 6 – display participants with an average score =6
-list sorted – display participants sorted in decreasing order of average score
+- list – display participants and all their scores
+- list < 4 – display participants with an average score <4
+- list = 6 – display participants with an average score =6
+- list sorted – display participants sorted in decreasing order of average score
