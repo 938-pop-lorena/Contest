@@ -155,7 +155,7 @@ def averageScoreInRange(participants: list, parameters: list):
     :return: int - average score
     """
     startPos = validPositon(participants, parameters[0])
-    endPos = validPositon(participants,parameters[2])
+    endPos = validPositon(participants, parameters[2])
     avgSum = 0
     count = 0
     for i in range(startPos, endPos + 1):
@@ -180,6 +180,71 @@ def lowestAverage(participants: list, parameters: list):
         if averageScore(participants[i]) < minScore:
             minScore = averageScore(participants[i])
     return minScore
+
+
+"""
+    ========================== E ==========================  
+"""
+
+
+def topParticipants(participants: list, parameters: list):
+    """
+    Returns the top participants.
+
+    :param participants: List of participants
+    :param parameters: List of parameters
+    :return:
+    """
+    nr = valueToInteger(parameters[0])
+    if nr > len(participants):
+        raise ValueError("Not enough participants!")
+    sortedParticipants = sorted(participants, key=lambda participant: averageScore(participant), reverse=True)
+    sortedParticipants = sortedParticipants[0:nr]
+    return sortedParticipants
+
+
+def topParticipantsForProblem(participants: list, parameters: list):
+    """
+    Returns a list containing the participants who obtained the highest scores
+    for a given problem, in descending order.
+
+    :param participants: List of participants
+    :param parameters: List of parameters
+    :return:
+    """
+    problem = validProblemNumber(parameters[1])
+    nr = valueToInteger(parameters[0])
+    sortedParticipants = sorted(participants, key=lambda participant: participant[problem], reverse=True)
+    sortedParticipants = sortedParticipants[0:nr]
+    return sortedParticipants
+
+
+def removeScoreRelation(participants: list, parameters: list):
+    """
+    Sets to 0 the scores of participants whose average respects the given relation.
+
+    :param participants: List of participants
+    :param parameters: List of parameters
+    """
+    relation = validRelation(parameters[0])
+    score = validScore(parameters[1])
+    filteredParticipants = []
+    if relation == ">":
+        for participant in participants:
+            if averageScore(participant) > score:
+                filteredParticipants.append(participant)
+    if relation == "<":
+        for participant in participants:
+            if averageScore(participant) < score:
+                filteredParticipants.append(participant)
+    if relation == "=":
+        for participant in participants:
+            if averageScore(participant) == score:
+                filteredParticipants.append(participant)
+    for participant in filteredParticipants:
+        setP1(participant, 0)
+        setP2(participant, 0)
+        setP3(participant, 0)
 
 
 def generateRandomParticipants(count: int) -> list:

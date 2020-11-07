@@ -16,6 +16,8 @@ def insertUI(participants, parameters):
 def removeUI(participants, parameters):
     if len(parameters) == 1:
         removeFromPosition(participants, parameters)
+    elif len(parameters) == 2:
+        removeScoreRelation(participants, parameters)
     elif len(parameters) == 3 and parameters[1] == "to":
         removeFromRange(participants, parameters)
     else:
@@ -57,6 +59,17 @@ def lowestAverageUI(participants, parameters):
     print(lowestAvg)
 
 
+def topParticipantsUI(participants, parameters):
+    if len(parameters) == 1:
+        top = topParticipants(participants, parameters)
+        listParticipants(top)
+    elif len(parameters) == 2:
+        top = topParticipantsForProblem(participants, parameters)
+        listParticipants(top)
+    else:
+        raise ValueError("Invalid parameters!")
+
+
 def commandName(command: str):
     command = command.strip()
     return command.split(' ')[0]
@@ -87,7 +100,8 @@ def runConsoleUI():
                 'replace': replaceUI,
                 'list': listUI,
                 'avg': averageScoreUI,
-                'min': lowestAverageUI
+                'min': lowestAverageUI,
+                'top': topParticipantsUI
                 }
 
     done = False
